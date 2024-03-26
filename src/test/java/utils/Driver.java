@@ -12,10 +12,6 @@ import java.util.concurrent.TimeUnit;
 public class Driver {
 
     private static AndroidDriver driver;
-    static final String TELEFONADI = "";
-    static final String ANDROIDVERSION = "";
-    static final String PLATFORM = "Android";
-    static final String OTOMASYON_ISMI = "UiAutomator2";
 
     public static AndroidDriver getAndroidDriver() {
 
@@ -29,10 +25,10 @@ public class Driver {
         if (driver == null) {
 
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability(MobileCapabilityType.DEVICE_NAME, TELEFONADI);
-            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, ANDROIDVERSION);
-            caps.setCapability(MobileCapabilityType.PLATFORM_NAME, PLATFORM);
-            caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, OTOMASYON_ISMI);
+            caps.setCapability(MobileCapabilityType.DEVICE_NAME, ConfigReader.getProperty("deviceName"));
+            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, ConfigReader.getProperty("androidVersion"));
+            caps.setCapability(MobileCapabilityType.PLATFORM_NAME, ConfigReader.getProperty("platformName"));
+            caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, ConfigReader.getProperty("automationName"));
             caps.setCapability("appPackage", "");
             caps.setCapability("appActivity", "");
             caps.setCapability(MobileCapabilityType.NO_RESET, false);
