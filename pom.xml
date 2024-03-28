@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>Kariyer_Net_Android-old</artifactId>
+    <artifactId>Kariyer_Net_Android</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
