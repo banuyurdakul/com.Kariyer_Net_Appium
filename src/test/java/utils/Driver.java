@@ -11,9 +11,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Driver {
 
-    private static AndroidDriver driver;
+    private static AndroidDriver<AndroidElement> driver;
 
-    public static AndroidDriver getAndroidDriver() {
+    public static AndroidDriver<AndroidElement> getAndroidDriver() {
 
         URL appiumServerURL = null;
         try {
@@ -29,14 +29,14 @@ public class Driver {
             caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, ConfigReader.getProperty("androidVersion"));
             caps.setCapability(MobileCapabilityType.PLATFORM_NAME, ConfigReader.getProperty("platformName"));
             caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, ConfigReader.getProperty("automationName"));
-            caps.setCapability("appPackage", "");
-            caps.setCapability("appActivity", "");
+            caps.setCapability("appPackage", ConfigReader.getProperty("appPackage"));
+            caps.setCapability("appActivity", ConfigReader.getProperty("appActivity"));
             caps.setCapability(MobileCapabilityType.NO_RESET, false);
 
 
             if (ConfigReader.getProperty("platformName").equals("Android")) {
                 assert appiumServerURL != null;
-                driver = new AndroidDriver<AndroidElement>(appiumServerURL, caps);
+                driver = new AndroidDriver<>(appiumServerURL, caps);
                 driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             } else {
                 throw new UnsupportedOperationException("Invalid Platform Name");

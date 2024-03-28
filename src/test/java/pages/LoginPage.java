@@ -1,5 +1,6 @@
 package pages;
 
+import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -114,7 +115,7 @@ public class LoginPage extends BasePage{
 
     public WebElement getGoogleLogo(){
 
-        List<WebElement> elements = Driver.getAndroidDriver().findElementsByXPath("//*[class='android.widget.TextView']");
+        List<AndroidElement> elements = Driver.getAndroidDriver().findElementsByXPath("//*[class='android.widget.TextView']");
         return elements.get(0);
     }
 
