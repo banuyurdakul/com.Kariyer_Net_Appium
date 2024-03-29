@@ -7,6 +7,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.testng.annotations.BeforeMethod;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +20,10 @@ public class ReusableMethods {
     static TouchAction action = new TouchAction<>(Driver.getAndroidDriver());
 
 
+
+
+
+
     public static void clickOn(int x, int y, int period) throws InterruptedException {
         action.press(PointOption.point(x,y)).release().perform();
         Thread.sleep(period);
@@ -27,7 +32,7 @@ public class ReusableMethods {
 
     public static void scrollDown(int period){
         action.press(PointOption.point(471,1371))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(period)))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(period*1000)))
                 .moveTo(PointOption.point(471,187))
                 .release()
                 .perform();
@@ -35,7 +40,7 @@ public class ReusableMethods {
 
     public static void scrollUp(int period) {
         action.press(PointOption.point(471,187))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(period)))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(period*1000)))
                 .moveTo(PointOption.point(471,1371))
                 .release()
                 .perform();

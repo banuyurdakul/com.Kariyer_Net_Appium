@@ -11,10 +11,6 @@ import java.util.concurrent.TimeUnit;
 public class Driver {
 
     private static AndroidDriver driver;
-    static final String deviceName = ConfigReader.getProperty("deviceName");
-    static final String androidVersion = ConfigReader.getProperty("androidVersion");
-    static final String platformName = ConfigReader.getProperty("platformName");
-    static final String automationName = ConfigReader.getProperty("automationName");
 
     public static AndroidDriver getAndroidDriver() {
         URL appiumServerURL = null;
@@ -27,12 +23,12 @@ public class Driver {
         if (driver == null) {
 
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
-            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, androidVersion);
-            caps.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
-            caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, automationName);
-            caps.setCapability("appPackage", "com.kariyer.androidproject");
-            caps.setCapability("appActivity","com.kariyer.androidproject.ui.login.LoginActivity");
+            caps.setCapability(MobileCapabilityType.DEVICE_NAME, ConfigReader.getProperty("deviceName"));
+            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, ConfigReader.getProperty("androidVersion"));
+            caps.setCapability(MobileCapabilityType.PLATFORM_NAME, ConfigReader.getProperty("platformName"));
+            caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, ConfigReader.getProperty("automationName"));
+            caps.setCapability("appPackage", ConfigReader.getProperty("appPackage"));
+            caps.setCapability("appActivity",ConfigReader.getProperty("appActivity"));
             caps.setCapability(MobileCapabilityType.NO_RESET, false);
 
             if (ConfigReader.getProperty("platformName").equals("Android")) {
