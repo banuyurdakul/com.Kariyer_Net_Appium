@@ -8,8 +8,8 @@ This is an test automation project for the Kariyer.Net Android App.
 
 Project tools:
 1. Programming Language : Java
-2. Automation Tools : Selenium and Appium(2.0)
-3. Framework  : TestNG (Data Driven Development)
+2. Automation Tools : Selenium and Appium(1.0)
+3. Framework  : TestNG 
 4. Dependency Management : Maven
 5. Reporting : Allure 
 
